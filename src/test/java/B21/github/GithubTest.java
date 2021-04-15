@@ -42,6 +42,7 @@ public class GithubTest {
         System.out.println("ID = " + lastResponse().jsonPath().getInt("id"));
     }
 
+    @DisplayName("Testing GET /users/{user_id} endpoint")
     @Test
     public void testGitHubUser3() {
         SerenityRest.given()
@@ -53,8 +54,8 @@ public class GithubTest {
         //assertion show up in the report as step in lambda exspression
 
         Ensure.that("Request run successfully!",thenSection->thenSection.statusCode(200));
-        Ensure.that("login field value is CybertekSchool",
-                thenSection->thenSection.body("login",is("CybertekSchool")));
+        Ensure.that("name field value is Cybertek School",
+                thenSection->thenSection.body("name",is("Cybertek School")));
 
     }
 
