@@ -51,7 +51,6 @@
 
 
     <dependencies>
-        <!--this is for base support for anything we do with serenity-->
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -70,9 +69,9 @@
             <version>5.7.1</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.B21.github.fabianlinz/serenity-junit5 -->
+        <!-- https://mvnrepository.com/artifact/io.github.fabianlinz/serenity-junit5 -->
         <dependency>
-            <groupId>io.B21.github.fabianlinz</groupId>
+            <groupId>io.github.fabianlinz</groupId>
             <artifactId>serenity-junit5</artifactId>
             <version>1.6.0</version>
         </dependency>
@@ -81,7 +80,6 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.30</version>
         </dependency>
-
     </dependencies>
 
 </project>

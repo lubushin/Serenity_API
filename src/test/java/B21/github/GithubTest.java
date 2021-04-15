@@ -5,10 +5,11 @@ import static io.restassured.RestAssured.*;
 public class GithubTest {
    //https://github.com/Cybertek-B21/B21SerenityProject
     //https://api.github.com/users/CybertekSchool
+    //gh repo clone lubushin/Serenity_API
 
     @BeforeAll
     public static void setUp(){
-        baseURI = "https://github.com";
+        baseURI = "https://api.github.com";
 
     }
     @Test
