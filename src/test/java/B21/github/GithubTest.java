@@ -30,15 +30,16 @@ public class GithubTest {
     @Test
     public void testGitHubUser2(){
         SerenityRest.given()
-                .pathParam("user_id" , "CybertekSchool")
-                .log().all().
+                .pathParam("user_id" , "CybertekSchool").
+                //.log().all().
         when()
                 .get("/users/{user_id}");
+        System.out.println("SStatus code = " + lastResponse().statusCode());
+        System.out.println("DDate = " + lastResponse().header("Date"));
+        System.out.println("Llogin = " + lastResponse().path("login"));
+        System.out.println("ID = " + lastResponse().jsonPath().getInt("id"));
 
     }
-
-
-
     @AfterAll
    public static void cleanUp(){
     reset();
