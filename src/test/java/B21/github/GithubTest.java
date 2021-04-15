@@ -2,9 +2,11 @@ package B21.github;
 
 import io.restassured.RestAssured;
 import net.serenitybdd.junit5.SerenityTest;
+import net.serenitybdd.rest.Ensure;
 import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.*;
 import static net.serenitybdd.rest.SerenityRest.*;
+import static org.hamcrest.Matchers.*;
 //import static io.restassured.RestAssured.*;
 @SerenityTest
 public class GithubTest {
@@ -38,8 +40,24 @@ public class GithubTest {
         System.out.println("DDate = " + lastResponse().header("Date"));
         System.out.println("Llogin = " + lastResponse().path("login"));
         System.out.println("ID = " + lastResponse().jsonPath().getInt("id"));
+    }
+
+    @Test
+    public void testGitHubUser3() {
+        SerenityRest.given()
+                .pathParam("user_id", "CybertekSchool").
+                //.log().all().
+                        when()
+                .get("/users/{user_id}");
+
+        //assertion show up in the report as step in lambda exspression
+
+        Ensure.that("Request run successfully!",thenSection->thenSection.statusCode(200));
+        Ensure.that("login field value is CybertekSchool",
+                thenSection->thenSection.body("login",is("CybertekSchool")));
 
     }
+
     @AfterAll
    public static void cleanUp(){
     reset();
